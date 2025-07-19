@@ -18,3 +18,5 @@ libero.egg-info/
 .vscode/
 
 scene_image/
+notebooks/
+templates/

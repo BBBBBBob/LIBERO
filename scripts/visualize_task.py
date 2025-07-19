@@ -4,6 +4,7 @@ import cv2
 from libero.libero import benchmark, get_libero_path
 from libero.libero.envs import OffScreenRenderEnv
 
+### environment varibale egl is for the mujoco
 os.environ["MUJOCO_GL"] = "egl"
 # task_suite_names = [
 #        "libero_object",
@@ -34,7 +35,7 @@ os.environ["MUJOCO_GL"] = "egl"
 
 #     cv2.imwrite(f"./scene_image/{task_suite_name}/{task_suite_name}_{task_id}.png", cv2.cvtColor(agent_view, cv2.COLOR_RGB2BGR))
 
-file_name = "libero_goal_OOD_flip"
+file_name = "libero_object_OOD_flip"
 task_bddl_files = glob.glob(f"./libero/libero/bddl_files/{file_name}/*.bddl")
 
 if not os.path.exists(f"./scene_image/{file_name}"):
