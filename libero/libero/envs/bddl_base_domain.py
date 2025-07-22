@@ -622,7 +622,7 @@ class BDDLBaseDomain(SingleArmEnv):
                         self.objects_dict[object_name],
                         x_ranges=x_ranges,
                         y_ranges=y_ranges,
-                        rotation=tuple(yaw_rotation),
+                        rotation=self.objects_dict[object_name].rotation if yaw_rotation[0] == 0 else tuple(yaw_rotation),
                         rotation_axis=self.objects_dict[object_name].rotation_axis,
                         reference_pos=self.workspace_offset,
                     )
