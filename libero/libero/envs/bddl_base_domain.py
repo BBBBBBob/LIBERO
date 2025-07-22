@@ -560,7 +560,6 @@ class BDDLBaseDomain(SingleArmEnv):
         return sensors, names
 
     def _add_placement_initializer(self):
-
         mapping_inv = {}
         for k, values in self.parsed_problem["fixtures"].items():
             for v in values:
@@ -623,11 +622,12 @@ class BDDLBaseDomain(SingleArmEnv):
                         self.objects_dict[object_name],
                         x_ranges=x_ranges,
                         y_ranges=y_ranges,
-                        rotation=self.objects_dict[object_name].rotation,
+                        rotation=tuple(yaw_rotation),
                         rotation_axis=self.objects_dict[object_name].rotation_axis,
                         reference_pos=self.workspace_offset,
                     )
                     self.placement_initializer.append_sampler(region_sampler)
+                    # rotation=self.objects_dict[object_name].rotation,   ### use yaw rotation instead of original rotation
             if state[0] in ["open", "close"]:
                 # If "open" is implemented, we assume "close" is also implemented
                 if state[1] in self.object_states_dict and hasattr(
