@@ -3,7 +3,7 @@ import glob
 import cv2
 from libero.libero import benchmark, get_libero_path
 from libero.libero.envs import OffScreenRenderEnv
-
+import torch
 ### environment varibale egl is for the mujoco
 os.environ["MUJOCO_GL"] = "egl"
 # task_suite_names = [
@@ -12,7 +12,11 @@ os.environ["MUJOCO_GL"] = "egl"
 #        "libero_spatial",
 #        "libero_10",
 # ]
-# task_suite_name = task_suite_names[0]
+# task_suite_name = task_suite_names[-1]
+
+# if not os.path.exists(f"./scene_image/{task_suite_name}"):
+#     os.makedirs(f"./scene_image/{task_suite_name}")
+                
 # benchmark_dict = benchmark.get_benchmark_dict()
 # task_suite = benchmark_dict[task_suite_name]()
 
@@ -33,16 +37,16 @@ os.environ["MUJOCO_GL"] = "egl"
 
 #     agent_view = obs["agentview_image"][::-1, ::-1]
 
-#     cv2.imwrite(f"./scene_image/{task_suite_name}/{task_suite_name}_{task_id}.png", cv2.cvtColor(agent_view, cv2.COLOR_RGB2BGR))
-
-file_name = "libero_object_OOD_flip"
+#     cv2.imwrite(f"./scene_image/{task_suite_name}/test_{task_id}.png", cv2.cvtColor(agent_view, cv2.COLOR_RGB2BGR))
+file_name = "libero_10_OOD_flip"
 task_bddl_files = glob.glob(f"./libero/libero/bddl_files/{file_name}/*.bddl")
-
+print(task_bddl_files)
 if not os.path.exists(f"./scene_image/{file_name}"):
     os.makedirs(f"./scene_image/{file_name}")
 
+
 for i in range(len(task_bddl_files)):
-#     env_args = {"bddl_file_name": task_bddl_files[i], "camera_heights": 256, "camera_widths": 256, "camera_offset_pos": [0, 0.3, 0], "camera_offset_quat": [0, 0, 0, 1]}  #"camera_offset_quat": [ 0, 0.1081878, 0, 0.9941305]
+    print(os.path.basename(task_bddl_files[i]))
     env_args = {"bddl_file_name": task_bddl_files[i], "camera_heights": 256, "camera_widths": 256}
     env = OffScreenRenderEnv(**env_args)
     env.seed(0)
