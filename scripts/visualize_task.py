@@ -38,7 +38,7 @@ os.environ["MUJOCO_GL"] = "egl"
 #     agent_view = obs["agentview_image"][::-1, ::-1]
 
 #     cv2.imwrite(f"./scene_image/{task_suite_name}/test_{task_id}.png", cv2.cvtColor(agent_view, cv2.COLOR_RGB2BGR))
-file_name = "libero_goal_OOD_new_object_new_prompt"
+file_name = "libero_object_OOD_swap"
 task_bddl_files = glob.glob(f"./libero/libero/bddl_files/{file_name}/*.bddl")
 print(task_bddl_files)
 if not os.path.exists(f"./scene_image/{file_name}"):
