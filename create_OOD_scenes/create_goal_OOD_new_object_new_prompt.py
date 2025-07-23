@@ -476,7 +476,7 @@ class GoalObjectScene4(InitialSceneTemplates):
 def main():
     # task 1
     scene_name = "goal_object_scene1"
-    language = "open_the_top_drawer_and_put_the_bowl_inside".replace("_", " ")
+    language = "open_the_top_drawer_and_put_the_ramekin_inside".replace("_", " ")
     register_task_info(
         language,
         scene_name=scene_name,
@@ -488,7 +488,7 @@ def main():
 
     # task 2
     scene_name = "goal_object_scene1"
-    language = "put_the_bowl_on_the_plate".replace("_", " ")
+    language = "put_the_ramekin_on_the_plate".replace("_", " ")
     register_task_info(
         language,
         scene_name=scene_name,
@@ -500,7 +500,7 @@ def main():
 
     # task 3
     scene_name = "goal_object_scene1"
-    language = "put_the_bowl_on_the_stove".replace("_", " ")
+    language = "put_the_ramekin_on_the_stove".replace("_", " ")
     register_task_info(
         language,
         scene_name=scene_name,
@@ -512,7 +512,7 @@ def main():
 
     # task 4
     scene_name = "goal_object_scene1"
-    language = "put_the_bowl_on_top_of_the_cabinet".replace("_", " ")
+    language = "put_the_ramekin_on_top_of_the_cabinet".replace("_", " ")
     register_task_info(
         language,
         scene_name=scene_name,
@@ -523,8 +523,20 @@ def main():
     )
 
     # task 5
+    scene_name = "goal_object_scene1"
+    language = "put_the_cream_cheese_in_the_ramekin".replace("_", " ")
+    register_task_info(
+        language,
+        scene_name=scene_name,
+        objects_of_interest=["cream_cheese_1", "glazed_rim_porcelain_ramekin_1"],
+        goal_states=[
+            ("On", "cream_cheese_1", "glazed_rim_porcelain_ramekin_1"),
+        ],
+    )
+
+    # task 6
     scene_name = "goal_object_scene2"
-    language = "push_the_plate_to_the_front_of_the_stove".replace("_", " ")
+    language = "push_the_ramekin_to_the_front_of_the_stove".replace("_", " ")
     register_task_info(
         language,
         scene_name=scene_name,
@@ -534,9 +546,21 @@ def main():
         ],
     )
 
-    # task 6
+    # task 7
+    scene_name = "goal_object_scene2"
+    language = "put_the_bowl_on_the_ramekin".replace("_", " ")
+    register_task_info(
+        language,
+        scene_name=scene_name,
+        objects_of_interest=["akita_black_bowl_1", "glazed_rim_porcelain_ramekin_1"],
+        goal_states=[
+            ("On", "akita_black_bowl_1", "glazed_rim_porcelain_ramekin_1"),
+        ],
+    )
+
+    # task 8
     scene_name = "goal_object_scene3"
-    language = "put_the_cream_cheese_in_the_bowl".replace("_", " ")
+    language = "put_the_butter_in_the_bowl".replace("_", " ")
     register_task_info(
         language,
         scene_name=scene_name,
@@ -546,9 +570,9 @@ def main():
         ],
     )
 
-    # task 7
+    # task 9
     scene_name = "goal_object_scene4"
-    language = "put_the_wine_bottle_on_the_rack".replace("_", " ")
+    language = "put_the_salad_dressing_on_the_rack".replace("_", " ")
     register_task_info(
         language,
         scene_name=scene_name,
@@ -558,9 +582,9 @@ def main():
         ],
     )
 
-    # task 8
+    # task 10
     scene_name = "goal_object_scene4"
-    language = "put_the_wine_bottle_on_top_of_the_cabinet".replace("_", " ")
+    language = "put_the_salad_dressing_on_top_of_the_cabinet".replace("_", " ")
     register_task_info(
         language,
         scene_name=scene_name,
@@ -571,7 +595,7 @@ def main():
     )
 
 
-    BDDL_FILE_PATH = "./libero/libero/bddl_files/libero_goal_OOD_new_object_original_prompt"
+    BDDL_FILE_PATH = "./libero/libero/bddl_files/libero_goal_OOD_new_object_new_prompt"
     if not os.path.exists(BDDL_FILE_PATH):
         os.makedirs(BDDL_FILE_PATH)
     bddl_file_names, failures = generate_bddl_from_task_info(BDDL_FILE_PATH)

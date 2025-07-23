@@ -1,8 +1,8 @@
 (define (problem LIBERO_Tabletop_Manipulation)
   (:domain robosuite)
-  (:language open the top drawer and put the bowl inside)
+  (:language push the ramekin to the front of the stove)
     (:regions
-      (plate_region
+      (ramekin_region
           (:target main_table)
           (:ranges (
               (0.04 -0.03 0.060000000000000005 -0.01)
@@ -13,7 +13,7 @@
             )
           )
       )
-      (ramekin_region
+      (akita_black_bowl_region
           (:target main_table)
           (:ranges (
               (-0.09999999999999999 -0.01 -0.08 0.01)
@@ -64,7 +64,7 @@
             )
           )
           (:yaw_rotation (
-              (0.0 0.0)
+              (3.141592653589793 3.141592653589793)
             )
           )
       )
@@ -86,7 +86,7 @@
             )
           )
           (:yaw_rotation (
-              (0.0 0.0)
+              (3.141592653589793 3.141592653589793)
             )
           )
       )
@@ -118,21 +118,20 @@
   )
 
   (:objects
-    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
+    akita_black_bowl_1 - akita_black_bowl
     cream_cheese_1 - cream_cheese
     wine_bottle_1 - wine_bottle
-    plate_1 - plate
+    glazed_rim_porcelain_ramekin_1 - glazed_rim_porcelain_ramekin
   )
 
   (:obj_of_interest
     glazed_rim_porcelain_ramekin_1
-    wooden_cabinet_1
   )
 
   (:init
     (On wine_bottle_1 main_table_wine_bottle_region)
+    (On akita_black_bowl_1 main_table_akita_black_bowl_region)
     (On glazed_rim_porcelain_ramekin_1 main_table_ramekin_region)
-    (On plate_1 main_table_plate_region)
     (On cream_cheese_1 main_table_cream_cheese_region)
     (On wooden_cabinet_1 main_table_wooden_cabinet_region)
     (On flat_stove_1 main_table_stove_region)
@@ -140,7 +139,7 @@
   )
 
   (:goal
-    (And (In glazed_rim_porcelain_ramekin_1 wooden_cabinet_1_top_region))
+    (And (On glazed_rim_porcelain_ramekin_1 main_table_stove_front_region))
   )
 
 )
