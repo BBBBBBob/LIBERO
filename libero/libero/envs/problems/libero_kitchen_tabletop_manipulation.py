@@ -1,3 +1,5 @@
+from scipy.spatial.transform import Rotation as R
+
 from robosuite.utils.mjcf_utils import new_site
 
 from libero.libero.envs.bddl_base_domain import BDDLBaseDomain, register_problem
@@ -196,7 +198,7 @@ class Libero_Kitchen_Tabletop_Manipulation(BDDLBaseDomain):
                 0.30484986305236816,
                 0.6380177736282349,
             ]).as_matrix()
-        rotation = R.from_euler(self.camera_ori_offset).as_matrix()
+        rotation = R.from_euler("xyz", self.camera_ori_offset).as_matrix()
         new_quat = R.from_matrix(orientation @ rotation).as_quat()
         
         mujoco_arena.set_camera(

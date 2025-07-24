@@ -70,7 +70,7 @@ class BDDLBaseDomain(SingleArmEnv):
         camera_depths=False,
         camera_segmentations=None,
         camera_pos_offset=[0, 0, 0],
-        camera_pos_offset=[0, 0, 0],  ## euler angle
+        camera_ori_offset=[0, 0, 0],  ## euler angle
         renderer="mujoco",
         table_full_size=(1.0, 1.0, 0.05),
         workspace_offset=(0.0, 0.0, 0.0),

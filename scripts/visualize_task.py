@@ -41,6 +41,7 @@ os.environ["MUJOCO_GL"] = "egl"
 file_name = "libero_10_OOD_flip"
 task_bddl_files = glob.glob(f"./libero/libero/bddl_files/{file_name}/*.bddl")
 print(task_bddl_files)
+file_name += "_offset"
 if not os.path.exists(f"./scene_image/{file_name}"):
     os.makedirs(f"./scene_image/{file_name}")
 
@@ -56,4 +57,4 @@ for i in range(len(task_bddl_files)):
 
     agent_view = obs["agentview_image"][::-1, ::-1]
     
-    cv2.imwrite(f"./scene_image/{file_name}_offset/test_{i}.png", cv2.cvtColor(agent_view, cv2.COLOR_RGB2BGR))
+    cv2.imwrite(f"./scene_image/{file_name}/test_{i}.png", cv2.cvtColor(agent_view, cv2.COLOR_RGB2BGR))
