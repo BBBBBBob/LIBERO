@@ -69,6 +69,8 @@ class BDDLBaseDomain(SingleArmEnv):
         camera_widths=256,
         camera_depths=False,
         camera_segmentations=None,
+        camera_pos_offset=[0, 0, 0],
+        camera_pos_offset=[0, 0, 0],  ## euler angle
         renderer="mujoco",
         table_full_size=(1.0, 1.0, 0.05),
         workspace_offset=(0.0, 0.0, 0.0),
@@ -131,7 +133,10 @@ class BDDLBaseDomain(SingleArmEnv):
         self._arena_type = arena_type
         self._arena_xml = os.path.join(self.custom_asset_dir, scene_xml)
         self._arena_properties = scene_properties
-
+        
+        self.camera_pos_offset = camera_pos_offset
+        self.camera_ori_offset = camera_ori_offset
+        
         super().__init__(
             robots=robots,
             env_configuration=env_configuration,

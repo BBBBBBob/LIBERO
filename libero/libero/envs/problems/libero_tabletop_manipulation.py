@@ -185,15 +185,23 @@ class Libero_Tabletop_Manipulation(BDDLBaseDomain):
                     )
 
     def _setup_camera(self, mujoco_arena):
-        mujoco_arena.set_camera(
-            camera_name="agentview",
-            pos=[0.6586131746834771, 0.0, 1.6103500240372423],
-            quat=[
+        new_pos = [0.6586131746834771 + self.camera_pos_offset[0], 
+                   0.0 + self.camera_pos_offset[1], 
+                   1.6103500240372423 + self.camera_pos_offset[2]]
+
+        orientation = R.from_quat([
                 0.6380177736282349,
                 0.3048497438430786,
                 0.30484986305236816,
                 0.6380177736282349,
-            ],
+            ]).as_matrix()
+        rotation = R.from_euler(self.camera_ori_offset).as_matrix()
+        new_quat = R.from_matrix(orientation @ rotation).as_quat()
+
+        mujoco_arena.set_camera(
+            camera_name="agentview",
+            pos=new_pos,
+            quat=new_quat
         )
 
         # For visualization purpose

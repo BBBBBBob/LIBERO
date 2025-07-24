@@ -36,6 +36,8 @@ class ControlEnv:
         camera_widths=128,
         camera_depths=False,
         camera_segmentations=None,
+        camera_pos_offset=[0, 0, 0],
+        camera_ori_offset=[0, 0, 0], ## euler angle
         renderer="mujoco",
         renderer_config=None,
         **kwargs,
@@ -75,6 +77,8 @@ class ControlEnv:
             camera_widths=camera_widths,
             camera_depths=camera_depths,
             camera_segmentations=camera_segmentations,
+            camera_pos_offset=camera_pos_offset,
+            camera_ori_offset=camera_ori_offset,
             renderer=renderer,
             renderer_config=renderer_config,
             **kwargs,

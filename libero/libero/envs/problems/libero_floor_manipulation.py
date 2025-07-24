@@ -182,15 +182,23 @@ class Libero_Floor_Manipulation(BDDLBaseDomain):
                     )
 
     def _setup_camera(self, mujoco_arena):
-        mujoco_arena.set_camera(
-            camera_name="agentview",
-            pos=[0.8965773716836134, 5.216182733499864e-07, 0.65],
-            quat=[
+        new_pos = [0.8965773716836134 + self.camera_pos_offset[0], 
+                   5.216182733499864e-07 + self.camera_pos_offset[1], 
+                   0.65 + self.camera_pos_offset[2]]
+
+        orientation = R.from_quat([
                 0.6182166934013367,
                 0.3432307541370392,
                 0.3432314395904541,
                 0.6182177066802979,
-            ],
+            ]).as_matrix()
+        rotation = R.from_euler(self.camera_ori_offset).as_matrix()
+        new_quat = R.from_matrix(orientation @ rotation).as_quat()
+
+        mujoco_arena.set_camera(
+            camera_name="agentview",
+            pos=new_pos,
+            quat=new_quat
         )
 
         # For visualization purpose

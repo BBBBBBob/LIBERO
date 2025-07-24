@@ -38,7 +38,7 @@ os.environ["MUJOCO_GL"] = "egl"
 #     agent_view = obs["agentview_image"][::-1, ::-1]
 
 #     cv2.imwrite(f"./scene_image/{task_suite_name}/test_{task_id}.png", cv2.cvtColor(agent_view, cv2.COLOR_RGB2BGR))
-file_name = "libero_object_OOD_swap"
+file_name = "libero_10_OOD_flip"
 task_bddl_files = glob.glob(f"./libero/libero/bddl_files/{file_name}/*.bddl")
 print(task_bddl_files)
 if not os.path.exists(f"./scene_image/{file_name}"):
@@ -47,7 +47,7 @@ if not os.path.exists(f"./scene_image/{file_name}"):
 
 for i in range(len(task_bddl_files)):
     print(os.path.basename(task_bddl_files[i]))
-    env_args = {"bddl_file_name": task_bddl_files[i], "camera_heights": 256, "camera_widths": 256}
+    env_args = {"bddl_file_name": task_bddl_files[i], "camera_heights": 256, "camera_widths": 256, "camera_pos_offset":[-0.2, 0, 0.1], "camera_ori_offset":[0.2, 0.1, 0]}
     env = OffScreenRenderEnv(**env_args)
     env.seed(0)
     env.reset()
@@ -56,4 +56,4 @@ for i in range(len(task_bddl_files)):
 
     agent_view = obs["agentview_image"][::-1, ::-1]
     
-    cv2.imwrite(f"./scene_image/{file_name}/test_{i}.png", cv2.cvtColor(agent_view, cv2.COLOR_RGB2BGR))
+    cv2.imwrite(f"./scene_image/{file_name}_offset/test_{i}.png", cv2.cvtColor(agent_view, cv2.COLOR_RGB2BGR))

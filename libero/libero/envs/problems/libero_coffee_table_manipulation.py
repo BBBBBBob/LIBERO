@@ -183,9 +183,23 @@ class Libero_Coffee_Table_Manipulation(BDDLBaseDomain):
                     )
 
     def _setup_camera(self, mujoco_arena):
+        new_pos = [1.5 + self.camera_pos_offset[0], 
+                   0.0 + self.camera_pos_offset[1], 
+                   0.9 + self.camera_pos_offset[2]]
+
+        orientation = R.from_quat([
+                0.56,
+                0.43,
+                0.43,
+                0.56,
+            ]).as_matrix()
+        rotation = R.from_euler(self.camera_ori_offset).as_matrix()
+        new_quat = R.from_matrix(orientation @ rotation).as_quat()
+
         mujoco_arena.set_camera(
-            camera_name="agentview", pos=[1.5, 0.0, 0.9], quat=[0.56, 0.43, 0.43, 0.56]
+            camera_name="agentview", pos=new_pos, quat=new_quat
         )
+        
         mujoco_arena.set_camera(
             camera_name="galleryview",
             pos=[2.844547668904445, 2.1279684793440667, 3.128616846013882],
