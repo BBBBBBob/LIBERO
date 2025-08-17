@@ -13,7 +13,7 @@ class ObjectDistScene1(InitialSceneTemplates):
         }
 
         object_num_info = {
-            "bbq_sauce": 1,
+            "salad_dressing": 1,
             "basket": 1,
         }
 
@@ -49,7 +49,7 @@ class ObjectDistScene1(InitialSceneTemplates):
     @property
     def init_states(self):
         states = [
-            ("On", "bbq_sauce_1", "floor_target_object_region"),
+            ("On", "salad_dressing_1", "floor_target_object_region"),
             ("On", "basket_1", "floor_bin_region")
         ]
         return states
@@ -64,7 +64,7 @@ class ObjectDistScene2(InitialSceneTemplates):
         }
 
         object_num_info = {
-            "bbq_sauce": 1,
+            "salad_dressing": 1,
             "basket": 1,
         }
 
@@ -100,7 +100,7 @@ class ObjectDistScene2(InitialSceneTemplates):
     @property
     def init_states(self):
         states = [
-            ("On", "bbq_sauce_1", "floor_target_object_region"),
+            ("On", "salad_dressing_1", "floor_target_object_region"),
             ("On", "basket_1", "floor_bin_region")
         ]
         return states
@@ -116,7 +116,7 @@ class ObjectDistScene3(InitialSceneTemplates):
         }
 
         object_num_info = {
-            "bbq_sauce": 1,
+            "salad_dressing": 1,
             "basket": 1,
         }
 
@@ -152,7 +152,7 @@ class ObjectDistScene3(InitialSceneTemplates):
     @property
     def init_states(self):
         states = [
-            ("On", "bbq_sauce_1", "floor_target_object_region"),
+            ("On", "salad_dressing_1", "floor_target_object_region"),
             ("On", "basket_1", "floor_bin_region")
         ]
         return states
@@ -168,7 +168,7 @@ class ObjectDistScene4(InitialSceneTemplates):
         }
 
         object_num_info = {
-            "bbq_sauce": 1,
+            "salad_dressing": 1,
             "basket": 1,
         }
 
@@ -204,7 +204,7 @@ class ObjectDistScene4(InitialSceneTemplates):
     @property
     def init_states(self):
         states = [
-            ("On", "bbq_sauce_1", "floor_target_object_region"),
+            ("On", "salad_dressing_1", "floor_target_object_region"),
             ("On", "basket_1", "floor_bin_region")
         ]
         return states
@@ -214,49 +214,49 @@ class ObjectDistScene4(InitialSceneTemplates):
 def main():
     # task 1
     scene_name = "object_dist_scene1"
-    language = "pick_up_the_bbq_sauce_and_place_it_in_the_basket".replace("_", " ")
+    language = "pick_up_the_salad_dressing_and_place_it_in_the_basket".replace("_", " ")
     register_task_info(
         language,
         scene_name=scene_name,
-        objects_of_interest=["bbq_sauce_1", "basket_1"],
+        objects_of_interest=["salad_dressing_1", "basket_1"],
         goal_states=[
-            ("In", "bbq_sauce_1", "basket_1_contain_region"),
+            ("In", "salad_dressing_1", "basket_1_contain_region"),
         ],
     )
 
     # task 2
     scene_name = "object_dist_scene2"
-    language = "pick_up_the_bbq_sauce_and_place_it_in_the_basket".replace("_", " ")
+    language = "pick_up_the_salad_dressing_and_place_it_in_the_basket".replace("_", " ")
     register_task_info(
         language,
         scene_name=scene_name,
-        objects_of_interest=["bbq_sauce_1", "basket_1"],
+        objects_of_interest=["salad_dressing_1", "basket_1"],
         goal_states=[
-            ("In", "bbq_sauce_1", "basket_1_contain_region"),
+            ("In", "salad_dressing_1", "basket_1_contain_region"),
         ],
     )
 
     # task 3
     scene_name = "object_dist_scene3"
-    language = "pick_up_the_bbq_sauce_and_place_it_in_the_basket".replace("_", " ")
+    language = "pick_up_the_salad_dressing_and_place_it_in_the_basket".replace("_", " ")
     register_task_info(
         language,
         scene_name=scene_name,
-        objects_of_interest=["bbq_sauce_1", "basket_1"],
+        objects_of_interest=["salad_dressing_1", "basket_1"],
         goal_states=[
-            ("In", "bbq_sauce_1", "basket_1_contain_region"),
+            ("In", "salad_dressing_1", "basket_1_contain_region"),
         ],
     )
 
     # task 4
     scene_name = "object_dist_scene4"
-    language = "pick_up_the_bbq_sauce_and_place_it_in_the_basket".replace("_", " ")
+    language = "pick_up_the_salad_dressing_and_place_it_in_the_basket".replace("_", " ")
     register_task_info(
         language,
         scene_name=scene_name,
-        objects_of_interest=["bbq_sauce_1", "basket_1"],
+        objects_of_interest=["salad_dressing_1", "basket_1"],
         goal_states=[
-            ("In", "bbq_sauce_1", "basket_1_contain_region"),
+            ("In", "salad_dressing_1", "basket_1_contain_region"),
         ],
     )
 

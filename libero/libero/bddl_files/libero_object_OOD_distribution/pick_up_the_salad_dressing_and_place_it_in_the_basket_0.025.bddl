@@ -1,6 +1,6 @@
 (define (problem LIBERO_Floor_Manipulation)
   (:domain robosuite)
-  (:language pick up the bbq sauce and place it in the basket)
+  (:language pick up the salad dressing and place it in the basket)
     (:regions
       (bin_region
           (:target floor)
@@ -16,7 +16,7 @@
       (target_object_region
           (:target floor)
           (:ranges (
-              (-0.05 -0.2 0.15000000000000002 0.0)
+              (0.025 -0.125 0.07500000000000001 -0.07500000000000001)
             )
           )
           (:yaw_rotation (
@@ -34,22 +34,22 @@
   )
 
   (:objects
-    bbq_sauce_1 - bbq_sauce
+    salad_dressing_1 - salad_dressing
     basket_1 - basket
   )
 
   (:obj_of_interest
-    bbq_sauce_1
+    salad_dressing_1
     basket_1
   )
 
   (:init
-    (On bbq_sauce_1 floor_target_object_region)
+    (On salad_dressing_1 floor_target_object_region)
     (On basket_1 floor_bin_region)
   )
 
   (:goal
-    (And (In bbq_sauce_1 basket_1_contain_region))
+    (And (In salad_dressing_1 basket_1_contain_region))
   )
 
 )
