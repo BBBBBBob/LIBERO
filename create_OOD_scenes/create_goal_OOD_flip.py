@@ -121,112 +121,112 @@ class GoalFlipScene1(InitialSceneTemplates):
 
 def main():
     # task 1
-    scene_name = "goal_flip_scene1"
-    language = "open_the_middle_drawer_of_the_cabinet".replace("_", " ")
-    register_task_info(
-        language,
-        scene_name=scene_name,
-        objects_of_interest=["wooden_cabinet_1"],
-        goal_states=[
-            ("Open", "wooden_cabinet_1_middle_region"),
-        ],
-    )
+    # scene_name = "goal_flip_scene1"
+    # language = "open_the_middle_drawer_of_the_cabinet".replace("_", " ")
+    # register_task_info(
+    #     language,
+    #     scene_name=scene_name,
+    #     objects_of_interest=["wooden_cabinet_1"],
+    #     goal_states=[
+    #         ("Open", "wooden_cabinet_1_middle_region"),
+    #     ],
+    # )
 
-    # task 2
-    scene_name = "goal_flip_scene1"
-    language = "open_the_top_drawer_and_put_the_bowl_inside".replace("_", " ")
-    register_task_info(
-        language,
-        scene_name=scene_name,
-        objects_of_interest=["akita_black_bowl_1", "wooden_cabinet_1"],
-        goal_states=[
-            ("In", "akita_black_bowl_1", "wooden_cabinet_1_top_region"),
-        ],
-    )
+    # # task 2
+    # scene_name = "goal_flip_scene1"
+    # language = "open_the_top_drawer_and_put_the_bowl_inside".replace("_", " ")
+    # register_task_info(
+    #     language,
+    #     scene_name=scene_name,
+    #     objects_of_interest=["akita_black_bowl_1", "wooden_cabinet_1"],
+    #     goal_states=[
+    #         ("In", "akita_black_bowl_1", "wooden_cabinet_1_top_region"),
+    #     ],
+    # )
 
-    # task 3
-    scene_name = "goal_flip_scene1"
-    language = "push_the_plate_to_the_front_of_the_stove".replace("_", " ")
-    register_task_info(
-        language,
-        scene_name=scene_name,
-        objects_of_interest=["plate_1"],
-        goal_states=[
-            ("On", "plate_1", "main_table_stove_front_region"),
-        ],
-    )
+    # # task 3
+    # scene_name = "goal_flip_scene1"
+    # language = "push_the_plate_to_the_front_of_the_stove".replace("_", " ")
+    # register_task_info(
+    #     language,
+    #     scene_name=scene_name,
+    #     objects_of_interest=["plate_1"],
+    #     goal_states=[
+    #         ("On", "plate_1", "main_table_stove_front_region"),
+    #     ],
+    # )
     
-    # task 4
-    scene_name = "goal_flip_scene1"
-    language = "put_the_bowl_on_the_plate".replace("_", " ")
-    register_task_info(
-        language,
-        scene_name=scene_name,
-        objects_of_interest=["akita_black_bowl_1", "plate_1"],
-        goal_states=[
-            ("On", "akita_black_bowl_1", "plate_1"),
-        ],
-    )
+    # # task 4
+    # scene_name = "goal_flip_scene1"
+    # language = "put_the_bowl_on_the_plate".replace("_", " ")
+    # register_task_info(
+    #     language,
+    #     scene_name=scene_name,
+    #     objects_of_interest=["akita_black_bowl_1", "plate_1"],
+    #     goal_states=[
+    #         ("On", "akita_black_bowl_1", "plate_1"),
+    #     ],
+    # )
 
-    # task 5
-    scene_name = "goal_flip_scene1"
-    language = "put_the_bowl_on_the_stove".replace("_", " ")
-    register_task_info(
-        language,
-        scene_name=scene_name,
-        objects_of_interest=["akita_black_bowl_1", "flat_stove_1"],
-        goal_states=[
-            ("On", "akita_black_bowl_1", "flat_stove_1_cook_region"),
-        ],
-    )
+    # # task 5
+    # scene_name = "goal_flip_scene1"
+    # language = "put_the_bowl_on_the_stove".replace("_", " ")
+    # register_task_info(
+    #     language,
+    #     scene_name=scene_name,
+    #     objects_of_interest=["akita_black_bowl_1", "flat_stove_1"],
+    #     goal_states=[
+    #         ("On", "akita_black_bowl_1", "flat_stove_1_cook_region"),
+    #     ],
+    # )
 
-    # task 6
-    scene_name = "goal_flip_scene1"
-    language = "put_the_bowl_on_top_of_the_cabinet".replace("_", " ")
-    register_task_info(
-        language,
-        scene_name=scene_name,
-        objects_of_interest=["akita_black_bowl_1", "wooden_cabinet_1"],
-        goal_states=[
-            ("On", "akita_black_bowl_1", "wooden_cabinet_1_top_side"),
-        ],
-    )
+    # # task 6
+    # scene_name = "goal_flip_scene1"
+    # language = "put_the_bowl_on_top_of_the_cabinet".replace("_", " ")
+    # register_task_info(
+    #     language,
+    #     scene_name=scene_name,
+    #     objects_of_interest=["akita_black_bowl_1", "wooden_cabinet_1"],
+    #     goal_states=[
+    #         ("On", "akita_black_bowl_1", "wooden_cabinet_1_top_side"),
+    #     ],
+    # )
 
-    # task 7
-    scene_name = "goal_flip_scene1"
-    language = "put_the_cream_cheese_in_the_bowl".replace("_", " ")
-    register_task_info(
-        language,
-        scene_name=scene_name,
-        objects_of_interest=["cream_cheese_1", "akita_black_bowl_1"],
-        goal_states=[
-            ("On", "cream_cheese_1", "akita_black_bowl_1"),
-        ],
-    )
+    # # task 7
+    # scene_name = "goal_flip_scene1"
+    # language = "put_the_cream_cheese_in_the_bowl".replace("_", " ")
+    # register_task_info(
+    #     language,
+    #     scene_name=scene_name,
+    #     objects_of_interest=["cream_cheese_1", "akita_black_bowl_1"],
+    #     goal_states=[
+    #         ("On", "cream_cheese_1", "akita_black_bowl_1"),
+    #     ],
+    # )
 
-    # task 8
-    scene_name = "goal_flip_scene1"
-    language = "put_the_wine_bottle_on_the_rack".replace("_", " ")
-    register_task_info(
-        language,
-        scene_name=scene_name,
-        objects_of_interest=["wine_bottle_1", "wine_rack_1"],
-        goal_states=[
-            ("On", "wine_bottle_1", "wine_rack_1_top_region"),
-        ],
-    )
+    # # task 8
+    # scene_name = "goal_flip_scene1"
+    # language = "put_the_wine_bottle_on_the_rack".replace("_", " ")
+    # register_task_info(
+    #     language,
+    #     scene_name=scene_name,
+    #     objects_of_interest=["wine_bottle_1", "wine_rack_1"],
+    #     goal_states=[
+    #         ("On", "wine_bottle_1", "wine_rack_1_top_region"),
+    #     ],
+    # )
 
-    # task 9
-    scene_name = "goal_flip_scene1"
-    language = "put_the_wine_bottle_on_top_of_the_cabinet".replace("_", " ")
-    register_task_info(
-        language,
-        scene_name=scene_name,
-        objects_of_interest=["wine_bottle_1", "wooden_cabinet_1"],
-        goal_states=[
-            ("On", "wine_bottle_1", "wooden_cabinet_1_top_side"),
-        ],
-    )
+    # # task 9
+    # scene_name = "goal_flip_scene1"
+    # language = "put_the_wine_bottle_on_top_of_the_cabinet".replace("_", " ")
+    # register_task_info(
+    #     language,
+    #     scene_name=scene_name,
+    #     objects_of_interest=["wine_bottle_1", "wooden_cabinet_1"],
+    #     goal_states=[
+    #         ("On", "wine_bottle_1", "wooden_cabinet_1_top_side"),
+    #     ],
+    # )
 
     # task 10
     scene_name = "goal_flip_scene1"
@@ -234,9 +234,9 @@ def main():
     register_task_info(
         language,
         scene_name=scene_name,
-        objects_of_interest=["wine_bottle_1", "flat_stove_1"],
+        objects_of_interest=["flat_stove_1"],
         goal_states=[
-            ("Turnon", "wine_bottle_1", "flat_stove_1"),
+            ("Turnon", "flat_stove_1"),
         ],
     )
 

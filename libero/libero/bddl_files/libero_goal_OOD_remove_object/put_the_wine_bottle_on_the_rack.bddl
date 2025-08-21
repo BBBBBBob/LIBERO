@@ -1,0 +1,55 @@
+(define (problem LIBERO_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language put the wine bottle on the rack)
+    (:regions
+      (wine_bottle_region
+          (:target main_table)
+          (:ranges (
+              (-0.21000000000000002 -0.060000000000000005 -0.19 -0.04)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (wine_rack_region
+          (:target main_table)
+          (:ranges (
+              (-0.27 -0.27 -0.25 -0.25)
+            )
+          )
+          (:yaw_rotation (
+              (3.141592653589793 3.141592653589793)
+            )
+          )
+      )
+      (top_region
+          (:target wine_rack_1)
+      )
+    )
+
+  (:fixtures
+    main_table - table
+    wine_rack_1 - wine_rack
+  )
+
+  (:objects
+    wine_bottle_1 - wine_bottle
+  )
+
+  (:obj_of_interest
+    wine_bottle_1
+    wine_rack_1
+  )
+
+  (:init
+    (On wine_bottle_1 main_table_wine_bottle_region)
+    (On wine_rack_1 main_table_wine_rack_region)
+  )
+
+  (:goal
+    (And (On wine_bottle_1 wine_rack_1_top_region))
+  )
+
+)

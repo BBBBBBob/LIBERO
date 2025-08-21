@@ -238,9 +238,9 @@ def main():
     register_task_info(
         language,
         scene_name=scene_name,
-        objects_of_interest=["wine_bottle_1", "flat_stove_1"],
+        objects_of_interest=["flat_stove_1"],
         goal_states=[
-            ("Turnon", "wine_bottle_1", "flat_stove_1"),
+            ("Turnon", "flat_stove_1"),
         ],
     )
 
