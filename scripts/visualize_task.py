@@ -8,63 +8,60 @@ import pathlib
 import numpy as np
 ### environment varibale egl is for the mujoco
 os.environ["MUJOCO_GL"] = "egl"
-# task_suite_names = [
-#        "libero_object",
-#        "libero_goal",
-#        "libero_spatial",
-#        "libero_10",
-# ]
-# task_suite_name = task_suite_names[-1]
+task_suite_names = [
+       "libero_object",
+]
+task_suite_name = task_suite_names[-1]
 
-# if not os.path.exists(f"./scene_image/{task_suite_name}"):
-#     os.makedirs(f"./scene_image/{task_suite_name}")
+if not os.path.exists(f"./scene_image/{task_suite_name}"):
+    os.makedirs(f"./scene_image/{task_suite_name}")
                 
-# benchmark_dict = benchmark.get_benchmark_dict()
-# task_suite = benchmark_dict[task_suite_name]()
+benchmark_dict = benchmark.get_benchmark_dict()
+task_suite = benchmark_dict[task_suite_name]()
 
-# num_tasks = task_suite.get_num_tasks()
-# language_list = []
-# for task_id in range(num_tasks):
-#     task = task_suite.get_task(task_id)
-#     print("The task is: ", task.language)
-#     task_bddl_file = os.path.join(get_libero_path("bddl_files"), task.problem_folder, task.bddl_file)
-#     env_args = {"bddl_file_name": task_bddl_file, "camera_heights": 256, "camera_widths": 256}
-#     env = OffScreenRenderEnv(**env_args)
-#     env.seed(0)
+num_tasks = task_suite.get_num_tasks()
+language_list = []
+for task_id in range(num_tasks):
+    task = task_suite.get_task(task_id)
+    print("The task is: ", task.language)
+    task_bddl_file = os.path.join(get_libero_path("bddl_files"), task.problem_folder, task.bddl_file)
+    env_args = {"bddl_file_name": task_bddl_file, "camera_heights": 256, "camera_widths": 256}
+    env = OffScreenRenderEnv(**env_args)
+    env.seed(0)
 
-#     initial_states = task_suite.get_task_init_states(task_id)
+    initial_states = task_suite.get_task_init_states(task_id)
     
-#     env.reset()
-#     obs = env.set_init_state(initial_states[0])
+    env.reset()
+    obs = env.set_init_state(initial_states[0])
 
-#     agent_view = obs["agentview_image"][::-1, ::-1]
+    agent_view = obs["agentview_image"][::-1, ::-1]
 
-#     cv2.imwrite(f"./scene_image/{task_suite_name}/test_{task_id}.png", cv2.cvtColor(agent_view, cv2.COLOR_RGB2BGR))
-folder_name = "libero_object_OOD_distribution"
-task_bddl_files = glob.glob(f"./libero/libero/bddl_files/{folder_name}/*.bddl")[-1:]
+    cv2.imwrite(f"./scene_image/{task_suite_name}/{task.language}.png", cv2.cvtColor(agent_view, cv2.COLOR_RGB2BGR))
+# folder_name = "libero_object_OOD_distribution"
+# task_bddl_files = glob.glob(f"./libero/libero/bddl_files/{folder_name}/*.bddl")[-1:]
 
-if not os.path.exists(f"./scene_image/{folder_name}"):
-    os.makedirs(f"./scene_image/{folder_name}")
+# if not os.path.exists(f"./scene_image/{folder_name}"):
+#     os.makedirs(f"./scene_image/{folder_name}")
 
-camera_offset_distance = 1
+# camera_offset_distance = 1
 
-initial_states = torch.load(f"./libero/libero/init_files/{folder_name}/pick_up_the_salad_dressing_and_place_it_in_the_basket_0.2.init")
+# initial_states = torch.load(f"./libero/libero/init_files/{folder_name}/pick_up_the_salad_dressing_and_place_it_in_the_basket_0.2.init")
 
-for i in range(len(task_bddl_files)):
-    for j in range(initial_states.shape[0]):
-        env_args = {"bddl_file_name": task_bddl_files[i], 
-                    "camera_heights": 256, 
-                    "camera_widths": 256,
-                    "camera_pos_offset":[0, 0, 0], 
-                    "camera_ori_offset":[0, 0, 0]}
+# for i in range(len(task_bddl_files)):
+#     for j in range(initial_states.shape[0]):
+#         env_args = {"bddl_file_name": task_bddl_files[i], 
+#                     "camera_heights": 256, 
+#                     "camera_widths": 256,
+#                     "camera_pos_offset":[0, 0, 0], 
+#                     "camera_ori_offset":[0, 0, 0]}
                     
-        env = OffScreenRenderEnv(**env_args)
-        env.seed(0)
-        env.reset()
+#         env = OffScreenRenderEnv(**env_args)
+#         env.seed(0)
+#         env.reset()
 
-        obs = env.set_init_state(initial_states[j])
-        # obs = env.env._get_observations()
+#         obs = env.set_init_state(initial_states[j])
+#         # obs = env.env._get_observations()
 
-        agent_view = obs["agentview_image"][::-1, ::-1]
-        file_name = pathlib.Path(task_bddl_files[i]).stem
-        cv2.imwrite(f"./scene_image/{folder_name}/{file_name}_{j}.png", cv2.cvtColor(agent_view, cv2.COLOR_RGB2BGR))
+#         agent_view = obs["agentview_image"][::-1, ::-1]
+#         file_name = pathlib.Path(task_bddl_files[i]).stem
+#         cv2.imwrite(f"./scene_image/{folder_name}/{file_name}_{j}.png", cv2.cvtColor(agent_view, cv2.COLOR_RGB2BGR))
